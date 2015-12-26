@@ -32,7 +32,9 @@
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.BackgroundImage = global::Tommundon.Properties.Resources.Background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(255, 231);
             this.Name = "Form1";
             this.ResumeLayout(false);
 

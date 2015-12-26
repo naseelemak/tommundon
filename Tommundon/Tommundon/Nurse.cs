@@ -21,5 +21,18 @@ namespace Tommundon
         {
 
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            Menu menu = new Menu();
+            menu.Dock = DockStyle.Fill;
+            this.Parent.Controls.Add(menu);
+            this.Parent.Controls.Remove(this);
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

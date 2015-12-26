@@ -32,5 +32,9 @@ namespace Tommundon
             this.Parent.Controls.Add(nurse);
             this.Parent.Controls.Remove(this);
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+        }
     }
 }
