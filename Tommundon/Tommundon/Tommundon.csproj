@@ -64,11 +64,23 @@
     <Compile Include="Nurse.Designer.cs">
       <DependentUpon>Nurse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Nurselist.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Nurselist.Designer.cs">
+      <DependentUpon>Nurselist.cs</DependentUpon>
+    </Compile>
     <Compile Include="Patient.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Patient.Designer.cs">
       <DependentUpon>Patient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Patientlist.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Patientlist.Designer.cs">
+      <DependentUpon>Patientlist.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,8 +93,14 @@
     <EmbeddedResource Include="Nurse.resx">
       <DependentUpon>Nurse.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Nurselist.resx">
+      <DependentUpon>Nurselist.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Patient.resx">
       <DependentUpon>Patient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Patientlist.resx">
+      <DependentUpon>Patientlist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -127,6 +145,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patientlist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nurselist.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -36,5 +36,21 @@ namespace Tommundon
         private void pictureBox3_Click(object sender, EventArgs e)
         {
         }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            Patientlist pl = new Patientlist();
+            pl.Dock = DockStyle.Fill;
+            this.Parent.Controls.Add(pl);
+            this.Parent.Controls.Remove(this);
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            Nurselist nl = new Nurselist();
+            nl.Dock = DockStyle.Fill;
+            this.Parent.Controls.Add(nl);
+            this.Parent.Controls.Remove(this);
+        }
     }
 }
