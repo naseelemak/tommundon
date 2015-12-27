@@ -50,7 +50,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(111, 77);
+            this.label3.Location = new System.Drawing.Point(13, 47);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 7;
@@ -61,12 +61,14 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(3, 106);
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Location = new System.Drawing.Point(94, 293);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 100);
+            this.panel1.Size = new System.Drawing.Size(60, 60);
             this.panel1.TabIndex = 8;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox3
             // 
@@ -74,9 +76,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.BackgroundImage = global::Tommundon.Properties.Resources.home;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox3.Location = new System.Drawing.Point(53, 14);
+            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(151, 60);
+            this.pictureBox3.Size = new System.Drawing.Size(60, 60);
             this.pictureBox3.TabIndex = 6;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
@@ -89,7 +91,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Name = "Nurse";
-            this.Size = new System.Drawing.Size(256, 209);
+            this.Size = new System.Drawing.Size(256, 369);
+            this.Load += new System.EventHandler(this.Nurse_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
