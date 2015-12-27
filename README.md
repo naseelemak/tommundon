@@ -12,7 +12,7 @@ IOOP Assignment
 *	Delete a nurse details (UI Done)
 *	Display all the patients (UI Done)
 *	Display all the nurses (UI Done)
-*	Check the ward to ensure that it has an appropriate number of nurses for the current patient. The ward should have no less than 1 nurse for every 5 patients. The ward must have 2 nurses of rank 3 or above for every 2 critical illness patients.
+*	Check the ward to ensure that it has an appropriate number of nurses for the current patient. The ward should have no less than 1 nurse for every 5 patients. The ward must have 2 nurses of rank 3 or above for every 2 critical illness patients. (UI Done)
 
 
 ### Classes###
