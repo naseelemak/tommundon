@@ -52,5 +52,13 @@ namespace Tommundon
             this.Parent.Controls.Add(nl);
             this.Parent.Controls.Remove(this);
         }
+
+        private void pictureBox3_Click_1(object sender, EventArgs e)
+        {
+            Ward ward = new Ward();
+            ward.Dock = DockStyle.Fill;
+            this.Parent.Controls.Add(ward);
+            this.Parent.Controls.Remove(this);
+        }
     }
 }
