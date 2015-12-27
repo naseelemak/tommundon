@@ -1,29 +1,24 @@
-# README #
+# Tommundon Med #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+IOOP Assignment
 
-### What is this repository for? ###
+### Functionalities ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+*	Add a new patient (UI Done)
+*	Find and display a patient, identified by number (UI Done)
+*	Discharge a patient, identified by number (UI Done)
+*	Delete a patient (this function will come into play in the event of the death of a patient) (UI Done)
+*	Add a new nurse 
+*	Delete a nurse details
+*	Display all the patients
+*	Display all the nurses
+*	Check the ward to ensure that it has an appropriate number of nurses for the current patient. The ward should have no less than 1 nurse for every 5 patients. The ward must have 2 nurses of rank 3 or above for every 2 critical illness patients.
 
-### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+### Classes###
 
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+*	Nurse 			
+*	Patient			
+*	Critical Patient	            
+*	Ward (manages a collection of patients).
+*	Driver class for Nurse, Patient, Critical Patient and Ward class.	
