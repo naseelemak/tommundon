@@ -10,8 +10,8 @@ IOOP Assignment
 *	Delete a patient (this function will come into play in the event of the death of a patient) (UI Done)
 *	Add a new nurse 
 *	Delete a nurse details
-*	Display all the patients
-*	Display all the nurses
+*	Display all the patients (UI Done)
+*	Display all the nurses (UI Done)
 *	Check the ward to ensure that it has an appropriate number of nurses for the current patient. The ward should have no less than 1 nurse for every 5 patients. The ward must have 2 nurses of rank 3 or above for every 2 critical illness patients.
 
 
@@ -21,4 +21,4 @@ IOOP Assignment
 *	Patient			
 *	Critical Patient	            
 *	Ward (manages a collection of patients).
-*	Driver class for Nurse, Patient, Critical Patient and Ward class.	
+*	Driver class for Nurse, Patient, Critical Patient and Ward class.
