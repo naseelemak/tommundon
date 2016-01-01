@@ -84,6 +84,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\CriticalPatient.cs" />
+    <Compile Include="Resources\Nurse.cs" />
+    <Compile Include="Resources\Patient.cs" />
     <Compile Include="Ward.cs">
       <SubType>UserControl</SubType>
     </Compile>
