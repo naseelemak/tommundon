@@ -87,6 +87,7 @@
     <Compile Include="Resources\CriticalPatient.cs" />
     <Compile Include="Resources\Nurse.cs" />
     <Compile Include="Resources\Patient.cs" />
+    <Compile Include="Resources\ward.cs" />
     <Compile Include="Ward.cs">
       <SubType>UserControl</SubType>
     </Compile>
