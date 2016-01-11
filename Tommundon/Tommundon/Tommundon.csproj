@@ -65,11 +65,11 @@
     <Compile Include="NurseForm.Designer.cs">
       <DependentUpon>NurseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NurselistForm.cs">
+    <Compile Include="Nurselist.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="NurselistForm.Designer.cs">
-      <DependentUpon>NurselistForm.cs</DependentUpon>
+    <Compile Include="Nurselist.Designer.cs">
+      <DependentUpon>Nurselist.cs</DependentUpon>
     </Compile>
     <Compile Include="PatientForm.cs">
       <SubType>UserControl</SubType>
@@ -103,8 +103,8 @@
     <EmbeddedResource Include="NurseForm.resx">
       <DependentUpon>NurseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NurselistForm.resx">
-      <DependentUpon>NurselistForm.cs</DependentUpon>
+    <EmbeddedResource Include="Nurselist.resx">
+      <DependentUpon>Nurselist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientForm.resx">
       <DependentUpon>PatientForm.cs</DependentUpon>

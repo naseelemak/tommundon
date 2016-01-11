@@ -47,7 +47,7 @@ namespace Tommundon
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            NurselistForm nl = new NurselistForm();
+            Nurselist nl = new Nurselist();
             nl.Dock = DockStyle.Fill;
             this.Parent.Controls.Add(nl);
             this.Parent.Controls.Remove(this);

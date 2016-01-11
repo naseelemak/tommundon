@@ -104,13 +104,13 @@ namespace Tommundon
             {
                 if (textBox1.Enabled == true && textBox2.Enabled == true)
                 {
-                    
+                    nurse test = new nurse((Int32.Parse(textBox3.Text)), textBox1.ToString(), (Int32.Parse(textBox1.Text)));
                    
                 }
             }
             catch
             {
-
+                MessageBox.Show("please insert the data correctly");
             }
         }
     }
