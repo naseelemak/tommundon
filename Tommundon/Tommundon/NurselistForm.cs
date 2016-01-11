@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Tommundon
 {
-    public partial class Nurselist : UserControl
+    public partial class NurselistForm : UserControl
     {
-        public Nurselist()
+        public NurselistForm()
         {
             InitializeComponent();
         }

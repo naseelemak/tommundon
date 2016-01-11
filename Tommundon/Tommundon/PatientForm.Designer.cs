@@ -1,6 +1,6 @@
 ﻿namespace Tommundon
 {
-    partial class Patient
+    partial class PatientForm
     {
         /// <summary> 
         /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace Tommundon
 {
-    partial class Nurselist
+    partial class NurselistForm
     {
         /// <summary> 
         /// Required designer variable.

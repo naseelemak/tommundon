@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CriticalPatient.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,23 +59,23 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nurse.cs">
+    <Compile Include="NurseForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Nurse.Designer.cs">
-      <DependentUpon>Nurse.cs</DependentUpon>
+    <Compile Include="NurseForm.Designer.cs">
+      <DependentUpon>NurseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nurselist.cs">
+    <Compile Include="NurselistForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Nurselist.Designer.cs">
-      <DependentUpon>Nurselist.cs</DependentUpon>
+    <Compile Include="NurselistForm.Designer.cs">
+      <DependentUpon>NurselistForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Patient.cs">
+    <Compile Include="PatientForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Patient.Designer.cs">
-      <DependentUpon>Patient.cs</DependentUpon>
+    <Compile Include="PatientForm.Designer.cs">
+      <DependentUpon>PatientForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Patientlist.cs">
       <SubType>UserControl</SubType>
@@ -84,15 +85,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\CriticalPatient.cs" />
-    <Compile Include="Resources\Nurse.cs" />
-    <Compile Include="Resources\Patient.cs" />
-    <Compile Include="Resources\ward.cs" />
-    <Compile Include="Ward.cs">
+    <Compile Include="Nurse.cs" />
+    <Compile Include="Patient.cs" />
+    <Compile Include="Ward.cs" />
+    <Compile Include="WardForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Ward.Designer.cs">
-      <DependentUpon>Ward.cs</DependentUpon>
+    <Compile Include="WardForm.Designer.cs">
+      <DependentUpon>WardForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -100,14 +100,14 @@
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nurse.resx">
-      <DependentUpon>Nurse.cs</DependentUpon>
+    <EmbeddedResource Include="NurseForm.resx">
+      <DependentUpon>NurseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nurselist.resx">
-      <DependentUpon>Nurselist.cs</DependentUpon>
+    <EmbeddedResource Include="NurselistForm.resx">
+      <DependentUpon>NurselistForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Patient.resx">
-      <DependentUpon>Patient.cs</DependentUpon>
+    <EmbeddedResource Include="PatientForm.resx">
+      <DependentUpon>PatientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Patientlist.resx">
       <DependentUpon>Patientlist.cs</DependentUpon>
@@ -117,8 +117,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ward.resx">
-      <DependentUpon>Ward.cs</DependentUpon>
+    <EmbeddedResource Include="WardForm.resx">
+      <DependentUpon>WardForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

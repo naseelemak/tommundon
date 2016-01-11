@@ -1,6 +1,6 @@
 ﻿namespace Tommundon
 {
-    partial class Ward
+    partial class WardForm
     {
         /// <summary> 
         /// Required designer variable.

@@ -19,7 +19,7 @@ namespace Tommundon
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Patient patient = new Patient();
+            PatientForm patient = new PatientForm();
             patient.Dock = DockStyle.Fill;
             this.Parent.Controls.Add(patient);
             this.Parent.Controls.Remove(this);
@@ -27,7 +27,7 @@ namespace Tommundon
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Nurse nurse = new Nurse();
+            NurseForm nurse = new NurseForm();
             nurse.Dock = DockStyle.Fill;
             this.Parent.Controls.Add(nurse);
             this.Parent.Controls.Remove(this);
@@ -47,7 +47,7 @@ namespace Tommundon
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            Nurselist nl = new Nurselist();
+            NurselistForm nl = new NurselistForm();
             nl.Dock = DockStyle.Fill;
             this.Parent.Controls.Add(nl);
             this.Parent.Controls.Remove(this);
@@ -55,7 +55,7 @@ namespace Tommundon
 
         private void pictureBox3_Click_1(object sender, EventArgs e)
         {
-            Ward ward = new Ward();
+            WardForm ward = new WardForm();
             ward.Dock = DockStyle.Fill;
             this.Parent.Controls.Add(ward);
             this.Parent.Controls.Remove(this);
