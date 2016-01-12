@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace Tommundon
 {
@@ -18,6 +19,13 @@ namespace Tommundon
             Menu menu = new Menu();
             menu.Dock = DockStyle.Fill;
             this.Controls.Add(menu);
+            
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+        
     }
 }

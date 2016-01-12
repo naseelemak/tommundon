@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace Tommundon
 {
@@ -17,6 +18,7 @@ namespace Tommundon
         private string text3;
         private int v1;
         private int v2;
+        OleDbConnection connect = Medible.AquireConnection();
 
         public NurseForm()
         {
@@ -24,9 +26,10 @@ namespace Tommundon
             textBox1.Enabled = false;
             textBox2.Enabled = false;
             textBox3.Enabled = false;
-            List<nurse> nurselist = new List<nurse>();
-        }
+            
 
+        }
+        
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -47,7 +50,7 @@ namespace Tommundon
 
         private void Nurse_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -100,12 +103,13 @@ namespace Tommundon
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            
             try
             {
                 if (textBox1.Enabled == true && textBox2.Enabled == true)
                 {
-                    nurse test = new nurse((Int32.Parse(textBox3.Text)), textBox1.ToString(), (Int32.Parse(textBox1.Text)));
-                   
+                    nurse test = new nurse(Int32.Parse(textBox3.Text), textBox1.Text.ToString(), Int32.Parse(textBox2.Text));
+                    test.insert(connect,test);
                 }
             }
             catch
