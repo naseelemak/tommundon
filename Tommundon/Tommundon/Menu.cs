@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace Tommundon
 {
@@ -59,6 +60,11 @@ namespace Tommundon
             ward.Dock = DockStyle.Fill;
             this.Parent.Controls.Add(ward);
             this.Parent.Controls.Remove(this);
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace Tommundon
 {
@@ -57,6 +58,11 @@ namespace Tommundon
                 checkBox5.Checked = false;
                 checkBox6.Checked = false;
             }
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

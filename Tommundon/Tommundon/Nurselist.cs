@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace Tommundon
 {
@@ -31,6 +32,11 @@ namespace Tommundon
             menu.Dock = DockStyle.Fill;
             this.Parent.Controls.Add(menu);
             this.Parent.Controls.Remove(this);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
