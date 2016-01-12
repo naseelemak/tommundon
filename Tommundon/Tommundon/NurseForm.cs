@@ -108,13 +108,8 @@ namespace Tommundon
             {
                 if (textBox1.Enabled == true && textBox2.Enabled == true)
                 {
-                    nurse item= new nurse(Int32.Parse(textBox3.Text), textBox1.Text.ToString(), Int32.Parse(textBox2.Text));
-                    connect.Open();
-                    OleDbCommand cmd = new OleDbCommand();
-                    cmd.Connection = connect;
-                    cmd.CommandText = "INSERT into Nurselist ( nurseID, nurseName, nurseRank) values ('" + textBox3.Text + "','" + textBox1.Text + "','" + textBox2.Text + "')";
-                    cmd.ExecuteNonQuery();
-                    connect.Close();
+                    nurse test = new nurse(Int32.Parse(textBox3.Text), textBox1.Text.ToString(), Int32.Parse(textBox2.Text));
+                    test.insert(connect,test);
                 }
             }
             catch
