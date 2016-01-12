@@ -99,7 +99,7 @@
             this.NurseName,
             this.Rank});
             this.dataGridView1.Location = new System.Drawing.Point(19, 41);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(457, 283);
             this.dataGridView1.TabIndex = 13;
@@ -130,7 +130,7 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Location = new System.Drawing.Point(208, 361);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(80, 74);
             this.panel2.TabIndex = 14;
@@ -152,7 +152,7 @@
             this.pictureBox1.BackgroundImage = global::Tommundon.Properties.Resources.home;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(80, 74);
             this.pictureBox1.TabIndex = 6;
@@ -167,7 +167,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Nurselist";
             this.Size = new System.Drawing.Size(497, 454);
             this.panel1.ResumeLayout(false);

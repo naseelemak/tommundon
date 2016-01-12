@@ -16,7 +16,22 @@ namespace Tommundon
         public Nurselist()
         {
             InitializeComponent();
+            OleDbConnection connect = Medible.AquireConnection();
+            connect.Open();
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.Connection = connect;
+            cmd.CommandText = "select* from Nurselist";
+            OleDbDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+
+
+                dataGridView1.Rows.Add(reader["nurseID"], reader["nurseName"], reader["nurseRank"]);
+
+            }
+            connect.Close();
         }
+
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
@@ -36,7 +51,12 @@ namespace Tommundon
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
