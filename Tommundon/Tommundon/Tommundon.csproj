@@ -186,9 +186,6 @@
     <None Include="Resources\nurselist.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Medible.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Ward Management System 2.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

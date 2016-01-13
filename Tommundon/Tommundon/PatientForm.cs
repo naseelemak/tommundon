@@ -222,35 +222,88 @@ namespace Tommundon
                 //ADD
                 if (PatientSelectionBox.SelectedIndex == 0)
                 {
-                    if (CriticalYesCheckBox.Checked == true)
+                    int x = Int32.Parse(IllnessLevelTextBox.Text);
+                    if (x > 0 && x < 6)
                     {
-                        bool shareward = false;
-                        if (ShareWardYesCheckBox.Checked == true)
+                        string ID = IDTextBox.Text;
+                        int IDlength = ID.Length;
+                        if (IDlength == 5)
                         {
-                            shareward = true;
+                            if (ID[0].ToString().Equals("G") && ID[1].ToString().Equals("P") && char.IsDigit(ID[2]) && char.IsDigit(ID[3]) && char.IsDigit(ID[4]))
+                            {
+                                string WardID = WardTextBox.Text;
+                                int WardIDlength = WardID.Length;
+                                if (WardIDlength == 4)
+                                {
+                                    if (WardID[0].ToString().Equals("W") && char.IsDigit(WardID[1]) && char.IsDigit(WardID[2]) && char.IsDigit(WardID[3]))
+                                    {
+                                        int WardNo = Int32.Parse(WardID[3].ToString());
+                                        if (WardNo < 6 && WardNo > 0)
+                                        {
+                                            if (CriticalYesCheckBox.Checked == true)
+                                            {
+                                                bool shareward = false;
+                                                if (ShareWardYesCheckBox.Checked == true)
+                                                {
+                                                    shareward = true;
+                                                }
+                                                else if (ShareWardYesCheckBox.Checked == false)
+                                                {
+                                                    shareward = false;
+                                                }
+
+
+                                                CriticalPatient item = new CriticalPatient(IDTextBox.Text, NameTextBox.Text, Int32.Parse(DayLeftTextBox.Text), WardTextBox.Text, false, true, Int32.Parse(IllnessLevelTextBox.Text), shareward);
+                                                string query = "('" + item.PatientID + "','" + item.PatientName + "','" + item.WardID + "','" + item.Daysleft.ToString() + "','" + item.Critical.ToString() + "','" + item.Discharge.ToString() + "')";
+                                                string query2 = "('" + item.PatientID + "','" + item.Level.ToString() + "','" + item.Shareward.ToString() + "')";
+
+                                                item.insert(item);
+                                                MessageBox.Show("Patient successfully added");
+
+
+                                            }
+                                            else if (CriticalYesCheckBox.Checked == false)
+                                            {
+
+                                                Patient item = new Patient(IDTextBox.Text, NameTextBox.Text, Int32.Parse(DayLeftTextBox.Text), WardTextBox.Text, false, false);
+                                                string query = "('" + item.PatientID + "','" + item.PatientName + "','" + item.WardID + "','" + item.Daysleft.ToString() + "'," + item.Critical.ToString() + "," + item.Discharge.ToString() + ")";
+
+                                                item.insert(item);
+                                                MessageBox.Show("Patient successfully added");
+
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Please enter only Ward ID from 001 ~ 005");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Invalid Ward ID format. (Format: N000)");
+                                    }
+                                }
+
+                                else
+                                {
+                                    MessageBox.Show("WardID can only accept 4 characters"); ;
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid Patient ID format. (Format: GP000)");
+                            }
                         }
-                        else if (ShareWardYesCheckBox.Checked == false)
+                        else
                         {
-                            shareward = false;
+                            MessageBox.Show("PatientID can only accept 5 characters");
                         }
-                        CriticalPatient item = new CriticalPatient(IDTextBox.Text, NameTextBox.Text, Int32.Parse(DayLeftTextBox.Text), WardTextBox.Text, false, true, Int32.Parse(IllnessLevelTextBox.Text), shareward );
-                        string query = "('" + item.PatientID + "','" + item.PatientName + "','" + item.WardID + "','" + item.Daysleft.ToString() + "','" + item.Critical.ToString() + "','" + item.Discharge.ToString() + "')";
-                        string query2 = "('" + item.PatientID + "','" + item.Level.ToString() + "','" + item.Shareward.ToString() + "')";
-                        MessageBox.Show(query + query2);
-                        item.insert(item);
-                        
                     }
-                    else if (CriticalYesCheckBox.Checked == false)
+                    else
                     {
-
-                        Patient item = new Patient(IDTextBox.Text, NameTextBox.Text, Int32.Parse(DayLeftTextBox.Text), WardTextBox.Text, false, false );
-                        string query = "('" + item.PatientID + "','" + item.PatientName + "','" + item.WardID + "','" + item.Daysleft.ToString() + "'," + item.Critical.ToString() + "," + item.Discharge.ToString() + ")";
-                        MessageBox.Show(query);
-                        item.insert(item);
-                        
+                        MessageBox.Show("Please insert an integer within 1-5 for the 'Illness Level' field");
                     }
-                    
-
                 }
                 //SEARCH
                 else if (PatientSelectionBox.SelectedIndex == 1)
@@ -265,79 +318,113 @@ namespace Tommundon
                     cmd.Connection = connect;
                     cmd.CommandText = "select * from General_Patient where PatientID = " + query;
                     OleDbDataReader reader = cmd.ExecuteReader();
-                    while (reader.Read())
+                    if (!reader.HasRows)
                     {
-                        IDTextBox.Text = reader["PatientID"].ToString();
-                        NameTextBox.Text = reader["PatientName"].ToString();
-                        DayLeftTextBox.Text = reader["DayLeft"].ToString();
-                        WardTextBox.Text = reader["Ward"].ToString();
-                        
-                        tof1 = reader["Critical"].ToString();
-                        tof2 = reader["Discharge"].ToString();
-
-                    }
-                    connect.Close();
-
-
-                    if (tof1 == "True")
-                    {
-                        CriticalYesCheckBox.Checked = true;
+                        NameTextBox.Text = "";
+                        DayLeftTextBox.Text = "";
+                        WardTextBox.Text = "";
                         CriticalNoCheckBox.Checked = false;
-                        ShareWardNoCheckBox.Enabled = false;
-                        ShareWardYesCheckBox.Enabled = false;
-                        IllnessLevelTextBox.Enabled = false;
+                        CriticalYesCheckBox.Checked = false;
+                        ShareWardNoCheckBox.Checked = false;
+                        ShareWardYesCheckBox.Checked = false;
+                        IllnessLevelTextBox.Text = "";
+                           
+                        MessageBox.Show("ID not found");
+                    }
 
-                        connect.Open();
-                        cmd.Connection = connect;
-                        cmd.CommandText = "select * from Critical_Patient where PatientID = " + query;
-                        reader = cmd.ExecuteReader();
+                    else
+                    {
+
                         while (reader.Read())
                         {
-                            string tof = reader["Shareward"].ToString();
+                            IDTextBox.Text = reader["PatientID"].ToString();
+                            NameTextBox.Text = reader["PatientName"].ToString();
+                            DayLeftTextBox.Text = reader["DayLeft"].ToString();
+                            WardTextBox.Text = reader["Ward"].ToString();
 
-                            IllnessLevelTextBox.Text = reader["Level"].ToString();
+                            tof1 = reader["Critical"].ToString();
+                            tof2 = reader["Discharge"].ToString();
 
-                            if (tof == "True")
-                            {
-                                ShareWardNoCheckBox.Checked = false;
-                                ShareWardYesCheckBox.Checked = true;
-                            }
-                            else
-                            {
-                                ShareWardNoCheckBox.Checked = true;
-                                ShareWardYesCheckBox.Checked = false;
-                            }
                         }
                         connect.Close();
 
-                    }
-                    else
-                    {
-                        CriticalNoCheckBox.Checked = true;
-                        CriticalYesCheckBox.Checked = false;
-                    }
 
-                    if (tof2 == "True")
-                    {
-                        DischargeLabel.Text = "Yes";
+                        if (tof1 == "True")
+                        {
+                            CriticalYesCheckBox.Checked = true;
+                            CriticalNoCheckBox.Checked = false;
+                            ShareWardNoCheckBox.Enabled = false;
+                            ShareWardYesCheckBox.Enabled = false;
+                            IllnessLevelTextBox.Enabled = false;
+
+                            connect.Open();
+                            cmd.Connection = connect;
+                            cmd.CommandText = "select * from Critical_Patient where PatientID = " + query;
+                            reader = cmd.ExecuteReader();
+                            while (reader.Read())
+                            {
+                                string tof = reader["Shareward"].ToString();
+
+                                IllnessLevelTextBox.Text = reader["Level"].ToString();
+
+                                if (tof == "True")
+                                {
+                                    ShareWardNoCheckBox.Checked = false;
+                                    ShareWardYesCheckBox.Checked = true;
+                                }
+                                else
+                                {
+                                    ShareWardNoCheckBox.Checked = true;
+                                    ShareWardYesCheckBox.Checked = false;
+                                }
+                            }
+                            connect.Close();
+
+                        }
+                        else
+                        {
+                            CriticalNoCheckBox.Checked = true;
+                            CriticalYesCheckBox.Checked = false;
+                        }
+
+                        if (tof2 == "True")
+                        {
+                            DischargeLabel.Text = "Yes";
+                        }
+                        else
+                        {
+                            DischargeLabel.Text = "No";
+                        }
                     }
-                    else
-                    {
-                        DischargeLabel.Text = "No";
-                    }
-                    
                     
                 }
                 //Discharge
                 else if (PatientSelectionBox.SelectedIndex == 2)
                 {
                     Patient item = new Patient(IDTextBox.Text);
-                    item.discharge(item);
+                    bool exist = item.discharge(item);
+                    switch (exist) { 
+                        case true:
+                            MessageBox.Show("Patient discharged successfully");
+                            break;
+                        case false:
+                            MessageBox.Show("Patient not found or already discharged");
+                            break;
+                    }
                 }//Delete
                 else if (PatientSelectionBox.SelectedIndex == 3)
                 {
                     Patient item = new Patient(IDTextBox.Text);
-                    item.delete(item);
+                    bool exist = item.delete(item);
+                    switch (exist)
+                    {
+                        case true:
+                            MessageBox.Show("Patient deleted successfully");
+                            break;
+                        case false:
+                            MessageBox.Show("Patient not found or already deleted");
+                            break;
+                    }
 
                 }
             }

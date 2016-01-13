@@ -28,17 +28,20 @@ namespace Tommundon
         {
 
         }
-        public virtual void delete(nurse item)
+        public virtual bool delete(nurse item)
         {
-
+            bool exist = false;
+            return exist;
         }
-        public virtual void delete(Patient item)
+        public virtual bool delete(Patient item)
         {
-
+            bool exist = false;
+            return exist;
         }
-        public virtual void discharge(Patient item)
+        public virtual bool discharge(Patient item)
         {
-
+            bool exist = false;
+            return exist;
         }
 
     }

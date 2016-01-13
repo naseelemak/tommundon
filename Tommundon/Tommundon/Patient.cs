@@ -47,29 +47,72 @@ namespace Tommundon
         {
 
         }
-        public override void discharge(Patient item)
+        public override bool discharge(Patient item)
         {
             OleDbConnection connect = Medible.AquireConnection();
             connect.Open();
             OleDbCommand cmd = new OleDbCommand();
             cmd.Connection = connect;
             string query = item.PatientID;
-            cmd.CommandText = "update General_Patient set  discharge = 'True' where PatientID = '" + query + "'" ;
-            cmd.ExecuteNonQuery();
+            string discharged = "";
+            cmd.CommandText = "SELECT * From General_Patient where PatientID = '" + query + "'";
+            OleDbDataReader reader = cmd.ExecuteReader();
+            bool exist = false;
+            while (reader.Read())
+            {
+                exist = reader.HasRows;
+                discharged = reader["discharge"].ToString();    
+            }
             connect.Close();
+            if (discharged.Equals("True"))
+            {
+                exist = false;
+                return exist;
+            }
+            if (!exist)
+            {
+                return exist;
+            }
+            else
+            {
+                connect.Open();
+                cmd.Connection = connect;
+                cmd.CommandText = "update General_Patient set  discharge = 'True' where PatientID = '" + query + "'";
+                cmd.ExecuteNonQuery();
+                connect.Close();
+                return exist;
+            }
         }
-        public override void delete(Patient item)
+        public override bool delete(Patient item)
         {
             OleDbConnection connect = Medible.AquireConnection();
             connect.Open();
             OleDbCommand cmd = new OleDbCommand();
             cmd.Connection = connect;
             string query = "PatientID ='" + item.PatientID.ToString() + "'";
-            cmd.CommandText = "Delete from General_Patient where " + query;
-            cmd.ExecuteNonQuery();
-            cmd.CommandText = "Delete from Critical_Patient where " + query;
-            cmd.ExecuteNonQuery();
+            cmd.CommandText = "SELECT * From General_Patient where " + query;
+            OleDbDataReader reader = cmd.ExecuteReader();
+            bool exist = false;
+            while (reader.Read())
+            {
+                exist = reader.HasRows;
+            }
             connect.Close();
+            if (!exist)
+            {
+                return exist;
+            }
+            else
+            {
+                connect.Open();
+                cmd.Connection = connect;
+                cmd.CommandText = "Delete from General_Patient where " + query;
+                cmd.ExecuteNonQuery();
+                cmd.CommandText = "Delete from Critical_Patient where " + query;
+                cmd.ExecuteNonQuery();
+                connect.Close();
+                return exist;
+            }
         }
     }
     

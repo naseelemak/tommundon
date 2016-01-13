@@ -43,21 +43,34 @@ namespace Tommundon
             cmd.ExecuteNonQuery();
             connect.Close();
         }
-        public override void delete(nurse item)
+        public override bool delete(nurse item)
         {
             OleDbConnection connect = Medible.AquireConnection();
             connect.Open();
             OleDbCommand cmd = new OleDbCommand();
             cmd.Connection = connect;
             string query = "NurseID = '" + item.NurseID.ToString() + "'";
-            cmd.CommandText = "Delete from Nurses where " + query ;
-            cmd.ExecuteNonQuery();
+            cmd.CommandText = "SELECT * From Nurses where " + query;
+            OleDbDataReader reader = cmd.ExecuteReader();
+            bool exist = false;
+            while (reader.Read())
+            {
+                exist = reader.HasRows;
+            }
             connect.Close();
+            if (!exist)
+            {
+                return exist;
+            }
+            else
+            {
+                connect.Open();
+                cmd.Connection = connect;
+                cmd.CommandText = "Delete from Nurses where " + query;
+                cmd.ExecuteNonQuery();
+                connect.Close();
+                return exist;
+            }
         }
-
-
-
-
-
     }
 }

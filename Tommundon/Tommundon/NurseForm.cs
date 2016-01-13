@@ -132,14 +132,54 @@ namespace Tommundon
                         if (x > 0 && x < 6)
                         {
                             nurse item = new nurse(IDTextBox.Text, NameTextBox.Text.ToString(), Int32.Parse(RankTextBox.Text), WardIDTextBox.Text.ToString());
-                            item.insert(item);
+                            string ID = IDTextBox.Text;
+                            int IDlength = ID.Length;
+                            if (IDlength == 4)
+                            {
+                                if (ID[0].ToString().Equals("N") && char.IsDigit(ID[1]) && char.IsDigit(ID[2]) && char.IsDigit(ID[3]))
+                                {
+                                    string WardID = WardIDTextBox.Text;
+                                    int WardIDlength = WardID.Length;
+                                    if (WardIDlength == 4)
+                                    {
+                                        if (WardID[0].ToString().Equals("W") && char.IsDigit(WardID[1]) && char.IsDigit(WardID[2]) && char.IsDigit(WardID[3]))
+                                        {
+                                            int WardNo = Int32.Parse(WardID[3].ToString());
+                                            if (WardNo < 6 && WardNo > 0)
+                                            {
 
-                            NameTextBox.Text = "";
-                            RankTextBox.Text = "";
-                            IDTextBox.Text = "";
-                            WardIDTextBox.Text = "";
+                                                item.insert(item);
 
-                            MessageBox.Show("Information successfully added");
+                                                NameTextBox.Text = "";
+                                                RankTextBox.Text = "";
+                                                IDTextBox.Text = "";
+                                                WardIDTextBox.Text = "";
+
+                                                MessageBox.Show("Information successfully added");
+                                            }
+                                            else {
+                                                MessageBox.Show("Please enter only Ward ID from 001 ~ 005");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Invalid Ward ID format. (Format: N000)");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("WardID can only accept 4 characters"); ;
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Invalid Nurse ID format. (Format: N000)");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("NurseID can only accept 4 characters");
+                            }
                         }
                         else
                         {
@@ -148,15 +188,23 @@ namespace Tommundon
                     }
                     catch
                     {
-                        MessageBox.Show("Please insert an integer within 1-5 for the 'Rank' field");
+                        MessageBox.Show("The data either existed or did not follow proper format");
                     }
 
                 }
                 else if (NurseSelectionBox.SelectedIndex == 1)
                 {
                     nurse item = new nurse(IDTextBox.Text);
-                    item.delete(item);
-
+                    bool exist = item.delete(item);
+                    switch (exist)
+                    {
+                        case true:
+                            MessageBox.Show("Nurse deleted successfully");
+                            break;
+                        case false:
+                            MessageBox.Show("Nurse not found or already deleted");
+                            break;
+                    }
                 }
 
             }
