@@ -32,9 +32,14 @@ namespace Tommundon
         {
 
         }
+        public virtual void delete(Patient item)
+        {
+
+        }
         public virtual void discharge(Patient item)
         {
 
         }
+
     }
 }
