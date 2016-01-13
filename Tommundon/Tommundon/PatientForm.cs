@@ -242,7 +242,7 @@ namespace Tommundon
                     {
 
                         Patient item = new Patient(IDTextBox.Text, NameTextBox.Text, Int32.Parse(DayLeftTextBox.Text), WardTextBox.Text, false, false );
-                        string query = "('" + item.PatientID + "','" + item.PatientName + "','" + item.WardID + "','" + item.Daysleft.ToString() + "','" + item.Critical.ToString() + "','" + item.Discharge.ToString() + "')";
+                        string query = "('" + item.PatientID + "','" + item.PatientName + "','" + item.WardID + "','" + item.Daysleft.ToString() + "'," + item.Critical.ToString() + "," + item.Discharge.ToString() + ")";
                         MessageBox.Show(query);
                         item.insert(item);
                         
