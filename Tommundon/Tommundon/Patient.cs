@@ -9,26 +9,35 @@ namespace Tommundon
 { 
     public class Patient : Medible
     {
-        public int patientID { get; set; }
-        public string patientName { get; set; }
-        public int dayleft { get; set; }
-        public string ward { get; set; }
-        public bool discharge { get; set; }
+        public string PatientID { get; set; }
+        public string PatientName { get; set; }
+        public int Dayleft { get; set; }
+        public string Ward { get; set; }
+        public bool Discharge { get; set; }
 
 
 
-        public Patient(int _patientID, string _patientName, int _dayleft, string _ward, bool _discharge)
+        public Patient(string _patientID, string _patientName, int _dayleft, string _ward, bool _discharge)
         {
-            patientID = _patientID;
-            patientName = _patientName;
-            dayleft = _dayleft;
-            ward = _ward;
-            discharge = _discharge;
+            PatientID = _patientID;
+            PatientName = _patientName;
+            Dayleft = _dayleft;
+            Ward = _ward;
+            Discharge = _discharge;
         }
         
-        public virtual void discharged (bool x)
+        public override void insert (Patient item)
+ 
         {
-            x = true;
+            OleDbConnection connect = Medible.AquireConnection();
+            connect.Open();
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.Connection = connect;
+            string query = "('" + item.PatientID + "','" + item.PatientName + "','" + item.Dayleft.ToString() + "','" + item.Ward + "','" + item.Discharge.ToString() + "')";
+            cmd.CommandText = "INSERT into General Patient Info ( PatientID, PatientName, Dayleft, Ward, Discharge) values" + query;
+            cmd.ExecuteNonQuery();
+            connect.Close();
         }
     }
+    
 }
