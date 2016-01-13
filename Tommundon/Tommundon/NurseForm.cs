@@ -26,6 +26,7 @@ namespace Tommundon
             textBox1.Enabled = false;
             textBox2.Enabled = false;
             textBox3.Enabled = false;
+            textBox4.Enabled = false;
             
 
         }
@@ -71,16 +72,21 @@ namespace Tommundon
                     textBox3.Enabled = true;
                     textBox1.Enabled = true;
                     textBox2.Enabled = true;
+                    textBox4.Enabled = true;
                     textBox1.Text = "";
                     textBox2.Text = "";
                     textBox3.Text = "";
+                    textBox4.Text = "";
                     break;
                 case 1:
                     textBox1.Enabled = false;
                     textBox2.Enabled = false;
+                    textBox3.Enabled = false;
+                    textBox4.Enabled = false;
                     textBox1.Text = "";
                     textBox2.Text = "";
                     textBox3.Text = "";
+                    textBox4.Text = "";
                     break;
             }
 
@@ -108,7 +114,7 @@ namespace Tommundon
             {
                 if (textBox3.Enabled == true && textBox2.Enabled == true && textBox1.Enabled == true)
                 {
-                    nurse item = new nurse(Int32.Parse(textBox3.Text), textBox1.Text.ToString(), Int32.Parse(textBox2.Text));
+                    nurse item = new nurse(textBox3.Text.ToString(), textBox1.Text.ToString(), Int32.Parse(textBox2.Text), textBox4.Text.ToString());
                     item.insert(item);
                     MessageBox.Show("data inserted");
                 }

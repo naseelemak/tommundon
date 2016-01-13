@@ -20,11 +20,11 @@ namespace Tommundon
             connect.Open();
             OleDbCommand cmd = new OleDbCommand();
             cmd.Connection = connect;
-            cmd.CommandText = "select* from Nurselist";
+            cmd.CommandText = "select* from Nurses";
             OleDbDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                dataGridView1.Rows.Add(reader["nurseID"], reader["nurseName"], reader["nurseRank"]);
+                dataGridView1.Rows.Add(reader["NurseID"], reader["NurseName"], reader["Rank"], reader["WardID"]);
             }
             connect.Close();
         }
