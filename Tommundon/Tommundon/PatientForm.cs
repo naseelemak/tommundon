@@ -267,6 +267,8 @@ namespace Tommundon
                 else if (PatientSelectionBox.SelectedIndex == 1)
                 {
                     string query = "'" + IDTextBox.Text.ToString() + "'";
+                    string tof1 = "";
+                    string tof2 = "";
 
                     OleDbConnection connect = Medible.AquireConnection();
                     connect.Open();
@@ -281,50 +283,61 @@ namespace Tommundon
                         DayLeftTextBox.Text = reader["DayLeft"].ToString();
                         WardTextBox.Text = reader["Ward"].ToString();
                         
-                        string tof1 = reader["Critical"].ToString();
-                        string tof2 = reader["Discharge"].ToString();
+                        tof1 = reader["Critical"].ToString();
+                        tof2 = reader["Discharge"].ToString();
 
-                        if (tof1 == "True")
-                        {
-                            CriticalYesCheckBox.Checked = true;
-                            CriticalNoCheckBox.Checked = false;
-
-                            cmd.CommandText = "select * from Critical_Patient where PatientID = " + query;
-                            while (reader.Read())
-                            {
-                                string tof = reader["Shareward"].ToString();
-
-                                IllnessLevelTextBox.Text = reader["Level"].ToString();
-
-                                if (tof == "True")
-                                {
-                                    ShareWardNoCheckBox.Checked = false;
-                                    ShareWardYesCheckBox.Checked = true;
-                                }
-                                else
-                                {
-                                    ShareWardNoCheckBox.Checked = true;
-                                    ShareWardYesCheckBox.Checked = false;
-                                }
-                            }
-
-                        }
-                        else
-                        {
-                            CriticalNoCheckBox.Checked = true;
-                            CriticalYesCheckBox.Checked = false;
-                        }
-
-                        if (tof2 == "True")
-                        {
-                            DischargeLabel.Text = "Yes";
-                        }
-                        else
-                        {
-                            DischargeLabel.Text = "No";
-                        }
                     }
                     connect.Close();
+
+
+                    if (tof1 == "True")
+                    {
+                        CriticalYesCheckBox.Checked = true;
+                        CriticalNoCheckBox.Checked = false;
+                        ShareWardNoCheckBox.Enabled = false;
+                        ShareWardYesCheckBox.Enabled = false;
+                        IllnessLevelTextBox.Enabled = false;
+
+                        connect.Open();
+                        cmd.Connection = connect;
+                        cmd.CommandText = "select * from Critical_Patient where PatientID = " + query;
+                        reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            string tof = reader["Shareward"].ToString();
+
+                            IllnessLevelTextBox.Text = reader["Level"].ToString();
+
+                            if (tof == "True")
+                            {
+                                ShareWardNoCheckBox.Checked = false;
+                                ShareWardYesCheckBox.Checked = true;
+                            }
+                            else
+                            {
+                                ShareWardNoCheckBox.Checked = true;
+                                ShareWardYesCheckBox.Checked = false;
+                            }
+                        }
+                        connect.Close();
+
+                    }
+                    else
+                    {
+                        CriticalNoCheckBox.Checked = true;
+                        CriticalYesCheckBox.Checked = false;
+                    }
+
+                    if (tof2 == "True")
+                    {
+                        DischargeLabel.Text = "Yes";
+                    }
+                    else
+                    {
+                        DischargeLabel.Text = "No";
+                    }
+                    
+                    
                 }
                 //Discharge
                 else if (PatientSelectionBox.SelectedIndex == 2)
@@ -346,6 +359,11 @@ namespace Tommundon
         }
 
         private void DischargeLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void IllnessLevelTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }
