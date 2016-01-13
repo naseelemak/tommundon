@@ -16,6 +16,7 @@ namespace Tommundon
         public PatientForm()
         {
             InitializeComponent();
+
             NameTextBox.Enabled = false;
             DayLeftTextBox.Enabled = false;
             IDTextBox.Enabled = false;
@@ -48,6 +49,7 @@ namespace Tommundon
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             switch (PatientSelectionBox.SelectedIndex)
             {
                 case 0:
@@ -253,9 +255,45 @@ namespace Tommundon
                 //SEARCH
                 else if (PatientSelectionBox.SelectedIndex == 1)
                 {
-                    nurse item = new nurse(IDTextBox.Text);
-                    item.delete(item);
+                    string query = "'" + IDTextBox.Text.ToString() + "'";
 
+                    OleDbConnection connect = Medible.AquireConnection();
+                    connect.Open();
+                    OleDbCommand cmd = new OleDbCommand();
+                    cmd.Connection = connect;
+                    cmd.CommandText = "select * from General_Patient where PatientID = " + query;
+                    OleDbDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        IDTextBox.Text = reader["PatientID"].ToString();
+                        NameTextBox.Text = reader["PatientName"].ToString();
+                        DayLeftTextBox.Text = reader["DayLeft"].ToString();
+                        WardTextBox.Text = reader["Ward"].ToString();
+                        
+                        string tof1 = reader["Critical"].ToString();
+                        string tof2 = reader["Discharge"].ToString();
+
+                        if (tof1 == "True")
+                        {
+                            CriticalYesCheckBox.Checked = true;
+                            CriticalNoCheckBox.Checked = false;
+                        }
+                        else
+                        {
+                            CriticalNoCheckBox.Checked = true;
+                            CriticalYesCheckBox.Checked = false;
+                        }
+
+                        if (tof2 == "True")
+                        {
+                            DischargeLabel.Text = "Yes";
+                        }
+                        else
+                        {
+                            DischargeLabel.Text = "No";
+                        }
+                    }
+                    connect.Close();
                 }
                 //Discharge
                 else if (PatientSelectionBox.SelectedIndex == 1)
