@@ -38,10 +38,16 @@ namespace Tommundon
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            Menu menu = new Menu();
-            menu.Dock = DockStyle.Fill;
-            this.Parent.Controls.Add(menu);
-            this.Parent.Controls.Remove(this);
+            if (textBox1.Text == "" textBox2.Text = "";
+                            textBox3.Text = "";
+                            textBox4.Text = "";
+            {
+                Menu menu = new Menu();
+                menu.Dock = DockStyle.Fill;
+                this.Parent.Controls.Add(menu);
+                this.Parent.Controls.Remove(this);
+            }
+
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -109,18 +115,40 @@ namespace Tommundon
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
             try
             {
                 if (textBox1.Enabled == true && textBox2.Enabled == true)
                 {
-                    nurse item = new nurse(textBox3.Text.ToString(), textBox1.Text.ToString(), Int32.Parse(textBox2.Text), textBox4.Text.ToString());
-                    item.insert(item);
+                    try
+                    {
+                        int x = Int32.Parse(textBox2.Text);
+                        if (x > 0 && x < 6)
+                        {
+                            nurse item = new nurse(textBox3.Text.ToString(), textBox1.Text.ToString(), Int32.Parse(textBox2.Text), textBox4.Text.ToString());
+                            item.insert(item);
+
+                            textBox1.Text = "";
+                            textBox2.Text = "";
+                            textBox3.Text = "";
+                            textBox4.Text = "";
+
+                            MessageBox.Show("Information successfully added");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please insert an integer within 1-5 for the 'Rank' field");
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Please insert an integer within 1-5 for the 'Rank' field");
+                    }
+
                 }
             }
             catch
             {
-                MessageBox.Show("please insert the data correctly");
+                MessageBox.Show("Please fill in the fields correctly.");
             }
         }
     }
