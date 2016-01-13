@@ -7,7 +7,7 @@ using System.Data.OleDb;
 
 namespace Tommundon
 {
-    public class Medible
+    class Medible
     {
 
 

@@ -7,7 +7,7 @@ using System.Data.OleDb;
 
 namespace Tommundon
 {
-    public class nurse : Medible
+    class nurse : Medible
     {
         public string NurseID { get; set; }
         public string NurseName { get; set; }

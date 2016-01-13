@@ -7,7 +7,7 @@ using System.Data.OleDb;
 
 namespace Tommundon
 {
-    public class CriticalPatient: Patient
+    class CriticalPatient: Patient
     {
         public int Level { get; set; }
         public bool Shareward { get; set; }
