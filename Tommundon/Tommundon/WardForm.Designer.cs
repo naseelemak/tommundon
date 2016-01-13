@@ -32,6 +32,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.HomePictureBox = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.WardSelectionBox = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.NoCPatientTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.WardSelectionBox = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HomePictureBox)).BeginInit();
             this.panel3.SuspendLayout();
@@ -107,6 +107,21 @@
             this.panel3.Size = new System.Drawing.Size(232, 252);
             this.panel3.TabIndex = 29;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // WardSelectionBox
+            // 
+            this.WardSelectionBox.FormattingEnabled = true;
+            this.WardSelectionBox.Items.AddRange(new object[] {
+            "W001",
+            "W002",
+            "W003",
+            "W004",
+            "W005"});
+            this.WardSelectionBox.Location = new System.Drawing.Point(9, 4);
+            this.WardSelectionBox.Name = "WardSelectionBox";
+            this.WardSelectionBox.Size = new System.Drawing.Size(219, 21);
+            this.WardSelectionBox.TabIndex = 0;
+            this.WardSelectionBox.SelectedIndexChanged += new System.EventHandler(this.WardSelectionBox_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -187,6 +202,7 @@
             this.NoPatientTextBox.Name = "NoPatientTextBox";
             this.NoPatientTextBox.Size = new System.Drawing.Size(142, 20);
             this.NoPatientTextBox.TabIndex = 1;
+            this.NoPatientTextBox.TextChanged += new System.EventHandler(this.NoPatientTextBox_TextChanged);
             // 
             // NoRank3TextBox
             // 
@@ -225,20 +241,6 @@
             this.label11.Size = new System.Drawing.Size(66, 13);
             this.label11.TabIndex = 30;
             this.label11.Text = "Ward Status";
-            // 
-            // WardSelectionBox
-            // 
-            this.WardSelectionBox.FormattingEnabled = true;
-            this.WardSelectionBox.Items.AddRange(new object[] {
-            "Ward 1",
-            "Ward 2",
-            "Ward 3",
-            "Ward 4",
-            "Ward 5"});
-            this.WardSelectionBox.Location = new System.Drawing.Point(9, 4);
-            this.WardSelectionBox.Name = "WardSelectionBox";
-            this.WardSelectionBox.Size = new System.Drawing.Size(219, 21);
-            this.WardSelectionBox.TabIndex = 0;
             // 
             // WardForm
             // 
