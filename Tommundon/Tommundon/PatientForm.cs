@@ -288,6 +288,26 @@ namespace Tommundon
                         {
                             CriticalYesCheckBox.Checked = true;
                             CriticalNoCheckBox.Checked = false;
+
+                            cmd.CommandText = "select * from Critical_Patient where PatientID = " + query;
+                            while (reader.Read())
+                            {
+                                string tof = reader["Shareward"].ToString();
+
+                                IllnessLevelTextBox.Text = reader["Level"].ToString();
+
+                                if (tof == "True")
+                                {
+                                    ShareWardNoCheckBox.Checked = false;
+                                    ShareWardYesCheckBox.Checked = true;
+                                }
+                                else
+                                {
+                                    ShareWardNoCheckBox.Checked = true;
+                                    ShareWardYesCheckBox.Checked = false;
+                                }
+                            }
+
                         }
                         else
                         {
