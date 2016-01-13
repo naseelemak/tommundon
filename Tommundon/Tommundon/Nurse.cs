@@ -21,9 +21,9 @@ namespace Tommundon
             this.Rank = _Rank;
             this.WardID = _WardID;
         }
-        public nurse(int _nurseID)
+        public nurse(string _NurseID)
         {
-            this.nurseID = _nurseID;
+            this.NurseID = _NurseID;
         }
 
         public nurse()
@@ -31,7 +31,7 @@ namespace Tommundon
         
         }
 
-        public override void insert( nurse item)
+        public override void insert(nurse item)
         {
             OleDbConnection connect = Medible.AquireConnection();
             connect.Open();
@@ -48,7 +48,7 @@ namespace Tommundon
             connect.Open();
             OleDbCommand cmd = new OleDbCommand();
             cmd.Connection = connect;
-            string query = "nurseID =" + item.nurseID.ToString() + "";
+            string query = "nurseID =" + item.NurseID.ToString() + "";
             cmd.CommandText = "Delete from Nurselist where "  + query ;
             cmd.ExecuteNonQuery();
             connect.Close();
