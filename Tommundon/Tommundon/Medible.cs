@@ -32,5 +32,9 @@ namespace Tommundon
         {
 
         }
+        public virtual void discharge(Patient item)
+        {
+
+        }
     }
 }
