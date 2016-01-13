@@ -21,9 +21,9 @@ namespace Tommundon
             this.Rank = _Rank;
             this.WardID = _WardID;
         }
-        public nurse(string _nurseID)
+        public nurse(string _NurseID)
         {
-            this.NurseID = _nurseID;
+            this.NurseID = _NurseID;
         }
 
         public nurse()
@@ -31,7 +31,7 @@ namespace Tommundon
         
         }
 
-        public override void insert( nurse item)
+        public override void insert(nurse item)
         {
             OleDbConnection connect = Medible.AquireConnection();
             connect.Open();
