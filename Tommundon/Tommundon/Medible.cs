@@ -24,6 +24,13 @@ namespace Tommundon
         {
             
         }
+        public virtual void insert(Patient item)
+        {
 
+        }
+        public virtual void delete(nurse item)
+        {
+
+        }
     }
 }
