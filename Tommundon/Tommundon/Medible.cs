@@ -23,7 +23,11 @@ namespace Tommundon
 
         public static OleDbConnection AquireConnection()
         {
-            OleDbConnection connect = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\edmun\Source\Repos\tommundon\Tommundon\Tommundon\Medible.mdb;User Id=admin; Password=;");
+            // http://stackoverflow.com/questions/1833640/connection-string-with-relative-path-to-the-database-file
+            string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string path = (System.IO.Path.GetDirectoryName(executable));
+            AppDomain.CurrentDomain.SetData("DataDirectory", path);
+            OleDbConnection connect = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\Medible.mdb;User Id=admin; Password=;");
             return connect;
         }
         public virtual void insert(nurse item)
