@@ -33,6 +33,7 @@ namespace Tommundon
 
         public override void insert(nurse item)
         {
+            //source:https://www.youtube.com/channel/UCs6nmQViDpUw0nuIx9c_WvA
             OleDbConnection connect = Medible.AquireConnection();
             connect.Open();
             OleDbCommand cmd = new OleDbCommand();

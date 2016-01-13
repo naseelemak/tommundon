@@ -20,11 +20,11 @@ namespace Tommundon
             connect.Open();
             OleDbCommand cmd = new OleDbCommand();
             cmd.Connection = connect;
-            cmd.CommandText = "select* from General_Patient";
+            cmd.CommandText = "SELECT  General_Patient.*, Critical_Patient.* FROM(General_Patient LEFT JOIN Critical_Patient ON General_Patient.[PatientID] = Critical_Patient.PatientID) UNION SELECT General_Patient.*, Critical_Patient.*FROM (Critical_Patient LEFT  JOIN General_Patient ON Critical_Patient.[PatientID] = General_Patient.PatientID)";
             OleDbDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                dataGridView1.Rows.Add(reader["PatientID"], reader["PatientName"], reader["Ward"], reader["DayLeft"], reader["Critical"], reader["Discharge"]);
+                dataGridView1.Rows.Add(reader[0], reader["PatientName"], reader["Ward"], reader["DayLeft"], reader["Critical"], reader["Discharge"],  reader["Level"], reader["Shareward"]);
             }
             connect.Close();
         }

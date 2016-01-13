@@ -41,7 +41,6 @@
             this.Discharge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IllnessLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ShareWard = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NurseRank = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -65,7 +64,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Location = new System.Drawing.Point(208, 361);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(80, 74);
             this.panel1.TabIndex = 9;
@@ -87,7 +86,7 @@
             this.pictureBox3.BackgroundImage = global::Tommundon.Properties.Resources.home;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox3.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(80, 74);
             this.pictureBox3.TabIndex = 6;
@@ -108,10 +107,9 @@
             this.Critical_Status,
             this.Discharge,
             this.IllnessLevel,
-            this.ShareWard,
-            this.NurseRank});
+            this.ShareWard});
             this.dataGridView1.Location = new System.Drawing.Point(20, 39);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(457, 283);
@@ -166,12 +164,6 @@
             this.ShareWard.Name = "ShareWard";
             this.ShareWard.ReadOnly = true;
             // 
-            // NurseRank
-            // 
-            this.NurseRank.HeaderText = "NurseRank";
-            this.NurseRank.Name = "NurseRank";
-            this.NurseRank.ReadOnly = true;
-            // 
             // Patientlist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -180,7 +172,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Patientlist";
             this.Size = new System.Drawing.Size(497, 454);
             this.panel1.ResumeLayout(false);
@@ -199,11 +191,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Critical_Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NurseRank;
         private System.Windows.Forms.DataGridViewTextBoxColumn ShareWard;
         private System.Windows.Forms.DataGridViewTextBoxColumn IllnessLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Discharge;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Critical_Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ward;
         private System.Windows.Forms.DataGridViewTextBoxColumn DayLeft;
         private System.Windows.Forms.DataGridViewTextBoxColumn PatientName;
