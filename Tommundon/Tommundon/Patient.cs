@@ -11,19 +11,21 @@ namespace Tommundon
     {
         public string PatientID { get; set; }
         public string PatientName { get; set; }
-        public int Dayleft { get; set; }
-        public string Ward { get; set; }
+        public int Daysleft { get; set; }
+        public string WardID { get; set; }
         public bool Discharge { get; set; }
+        public bool Critical { get; set; }
 
 
 
-        public Patient(string _patientID, string _patientName, int _dayleft, string _ward, bool _discharge)
+        public Patient(string _patientID, string _patientName, int _dayleft, string _ward, bool _discharge, bool _critical)
         {
             PatientID = _patientID;
             PatientName = _patientName;
-            Dayleft = _dayleft;
-            Ward = _ward;
+            Daysleft = _dayleft;
+            WardID = _ward;
             Discharge = _discharge;
+            Critical = _critical;
         }
         
         public override void insert (Patient item)
@@ -33,10 +35,11 @@ namespace Tommundon
             connect.Open();
             OleDbCommand cmd = new OleDbCommand();
             cmd.Connection = connect;
-            string query = "('" + item.PatientID + "','" + item.PatientName + "','" + item.Dayleft.ToString() + "','" + item.Ward + "','" + item.Discharge.ToString() + "')";
-            cmd.CommandText = "INSERT into General Patient Info ( PatientID, PatientName, Dayleft, Ward, Discharge) values" + query;
+            string query = "('" + item.PatientID + "','" + item.PatientName + "','" + item.Daysleft.ToString() + "','" + item.WardID + "','" + item.Discharge.ToString() + "','" + item.Critical.ToString() + "')";
+            cmd.CommandText = "INSERT into General_Patient ( PatientID, PatientName, WardID, Daysleft, Critical, discharge) values" + query;
             cmd.ExecuteNonQuery();
             connect.Close();
+
         }
     }
     
