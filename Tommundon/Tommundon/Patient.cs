@@ -35,8 +35,8 @@ namespace Tommundon
             connect.Open();
             OleDbCommand cmd = new OleDbCommand();
             cmd.Connection = connect;
-            string query = "('" + item.PatientID + "','" + item.PatientName + "','" + item.Daysleft.ToString() + "','" + item.WardID + "','" + item.Discharge.ToString() + "','" + item.Critical.ToString() + "')";
-            cmd.CommandText = "INSERT into General_Patient ( PatientID, PatientName, WardID, Daysleft, Critical, discharge) values" + query;
+            string query = "('" + item.PatientID + "','" + item.PatientName + "','" + item.WardID + "','" + item.Daysleft.ToString() + "','" + item.Critical.ToString() + "','" + item.Discharge.ToString() + "')";
+            cmd.CommandText = "INSERT into General_Patient ( PatientID, PatientName, Ward, Dayleft, Critical, Discharge) values" + query;
             cmd.ExecuteNonQuery();
             connect.Close();
 

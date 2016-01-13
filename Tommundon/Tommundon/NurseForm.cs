@@ -124,14 +124,14 @@ namespace Tommundon
         {
             try
             {
-                if (NameTextBox.Enabled == true && RankTextBox.Enabled == true)
+                if (NurseSelectionBox.SelectedIndex == 0)
                 {
                     try
                     {
                         int x = Int32.Parse(RankTextBox.Text);
                         if (x > 0 && x < 6)
                         {
-                            nurse item = new nurse(IDTextBox.Text.ToString(), NameTextBox.Text.ToString(), Int32.Parse(RankTextBox.Text), WardIDTextBox.Text.ToString());
+                            nurse item = new nurse(IDTextBox.Text, NameTextBox.Text.ToString(), Int32.Parse(RankTextBox.Text), WardIDTextBox.Text.ToString());
                             item.insert(item);
 
                             NameTextBox.Text = "";
@@ -152,7 +152,15 @@ namespace Tommundon
                     }
 
                 }
+                else if (NurseSelectionBox.SelectedIndex == 1)
+                {
+                    nurse item = new nurse(IDTextBox.Text);
+                    item.delete(item);
+
+                }
+
             }
+
             catch
             {
                 MessageBox.Show("Please fill in the fields correctly.");
