@@ -9,26 +9,38 @@ namespace Tommundon
 { 
     public class Patient : Medible
     {
-        public int patientID { get; set; }
-        public string patientName { get; set; }
-        public int dayleft { get; set; }
-        public string ward { get; set; }
-        public bool discharge { get; set; }
+        public string PatientID { get; set; }
+        public string PatientName { get; set; }
+        public int Daysleft { get; set; }
+        public string WardID { get; set; }
+        public bool Discharge { get; set; }
+        public bool Critical { get; set; }
 
 
 
-        public Patient(int _patientID, string _patientName, int _dayleft, string _ward, bool _discharge)
+        public Patient(string _patientID, string _patientName, int _dayleft, string _ward, bool _discharge, bool _critical)
         {
-            patientID = _patientID;
-            patientName = _patientName;
-            dayleft = _dayleft;
-            ward = _ward;
-            discharge = _discharge;
+            PatientID = _patientID;
+            PatientName = _patientName;
+            Daysleft = _dayleft;
+            WardID = _ward;
+            Discharge = _discharge;
+            Critical = _critical;
         }
         
-        public virtual void discharged (bool x)
+        public override void insert (Patient item)
+ 
         {
-            x = true;
+            OleDbConnection connect = Medible.AquireConnection();
+            connect.Open();
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.Connection = connect;
+            string query = "('" + item.PatientID + "','" + item.PatientName + "','" + item.WardID + "','" + item.Daysleft.ToString() + "','" + item.Critical.ToString() + "','" + item.Discharge.ToString() + "')";
+            cmd.CommandText = "INSERT into General_Patient ( PatientID, PatientName, Ward, Dayleft, Critical, Discharge) values" + query;
+            cmd.ExecuteNonQuery();
+            connect.Close();
+
         }
     }
+    
 }

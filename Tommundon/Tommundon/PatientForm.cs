@@ -223,5 +223,63 @@ namespace Tommundon
         {
 
         }
+
+        private void DonePictureBox_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //ADD
+                if (PatientSelectionBox.SelectedIndex == 0)
+                {
+                    if (CriticalYesCheckBox.Checked == true)
+                    {
+                        Patient item = new Patient(IDTextBox.Text, NameTextBox.Text, Int32.Parse(DayLeftTextBox.Text), WardTextBox.Text, false, true );
+                        string query = "('" + item.PatientID + "','" + item.PatientName + "','" + item.Daysleft.ToString() + "','" + item.WardID + "','" + item.Discharge.ToString() + "','" + item.Critical.ToString() + "')";
+                        item.insert(item);
+                        MessageBox.Show(query);
+                    }
+                    else if (CriticalYesCheckBox.Checked == false)
+                    {
+
+                        Patient item = new Patient(IDTextBox.Text, NameTextBox.Text, Int32.Parse(DayLeftTextBox.Text), WardTextBox.Text, false, false );
+                        string query = "('" + item.PatientID + "','" + item.PatientName + "','" + item.WardID + "','" + item.Daysleft.ToString() + "','" + item.Critical.ToString() + "','" + item.Discharge.ToString() + "')";
+                        MessageBox.Show(query);
+                        item.insert(item);
+                        
+                    }
+                    
+
+                }
+                //SEARCH
+                else if (PatientSelectionBox.SelectedIndex == 1)
+                {
+                    nurse item = new nurse(IDTextBox.Text);
+                    item.delete(item);
+
+                }
+                //Discharge
+                else if (PatientSelectionBox.SelectedIndex == 1)
+                {
+                    nurse item = new nurse(IDTextBox.Text);
+                    item.delete(item);
+
+                }//Delete
+                else if (PatientSelectionBox.SelectedIndex == 1)
+                {
+                    nurse item = new nurse(IDTextBox.Text);
+                    item.delete(item);
+
+                }
+            }
+            catch
+            {
+                MessageBox.Show("please insert the data correctly");
+            }
+        }
+
+        private void DischargeLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

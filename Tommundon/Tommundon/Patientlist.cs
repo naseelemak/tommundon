@@ -16,6 +16,17 @@ namespace Tommundon
         public Patientlist()
         {
             InitializeComponent();
+            OleDbConnection connect = Medible.AquireConnection();
+            connect.Open();
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.Connection = connect;
+            cmd.CommandText = "select* from General_Patient";
+            OleDbDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                dataGridView1.Rows.Add(reader["PatientID"], reader["PatientName"], reader["Ward"], reader["DayLeft"], reader["Critical"], reader["Discharge"]);
+            }
+            connect.Close();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
