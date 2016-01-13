@@ -24,10 +24,7 @@ namespace Tommundon
             OleDbDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-
-
                 dataGridView1.Rows.Add(reader["nurseID"], reader["nurseName"], reader["nurseRank"]);
-
             }
             connect.Close();
         }

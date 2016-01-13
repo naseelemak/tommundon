@@ -26,7 +26,7 @@ namespace Tommundon
             OleDbConnection connect = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\edmun\Source\Repos\tommundon\Tommundon\Tommundon\Tomundon.accdb;");
             return connect;
         }
-        public virtual void insert(OleDbConnection connect, Medible item)
+        public virtual void insert(nurse item)
         {
             
         }

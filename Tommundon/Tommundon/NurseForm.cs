@@ -108,8 +108,8 @@ namespace Tommundon
             {
                 if (textBox1.Enabled == true && textBox2.Enabled == true)
                 {
-                    nurse test = new nurse(Int32.Parse(textBox3.Text), textBox1.Text.ToString(), Int32.Parse(textBox2.Text));
-                    test.insert(connect,test);
+                    nurse item = new nurse(Int32.Parse(textBox3.Text), textBox1.Text.ToString(), Int32.Parse(textBox2.Text));
+                    item.insert(item);
                 }
             }
             catch

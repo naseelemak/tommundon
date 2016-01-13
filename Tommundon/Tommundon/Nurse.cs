@@ -9,7 +9,9 @@ namespace Tommundon
 {
     public class nurse : Medible
     {
-        
+        public new int nurseID { get; set; }
+        public new string nurseName { get; set; }
+        public new int nurseRank { get; set; }
 
         public nurse(int _nurseID, string _nurseName, int _nurseRank) 
         {
@@ -18,16 +20,23 @@ namespace Tommundon
             this.nurseRank = _nurseRank;
         }
 
-        public override void insert(OleDbConnection connect, Medible item)
+        public nurse()
         {
+        
+        }
+
+        public override void insert( nurse item)
+        {
+            OleDbConnection connect = Medible.AquireConnection();
             connect.Open();
             OleDbCommand cmd = new OleDbCommand();
             cmd.Connection = connect;
-            cmd.CommandText = "INSERT into Nurselist ( nurseID, nurseName, nurseRank) values ('" + item.nurseID + "','" + item.nurseName + "','" + item.nurseName + "')";
+            string query = "('" + item.nurseID.ToString() + "','" + item.nurseName + "','" + item.nurseRank.ToString() + "')";
+            cmd.CommandText = "INSERT into Nurselist ( nurseID, nurseName, nurseRank) values" + query;
             cmd.ExecuteNonQuery();
             connect.Close();
-
         }
+        
 
 
 
