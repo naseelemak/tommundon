@@ -16,13 +16,12 @@ namespace Tommundon
         public WardForm()
         {
             InitializeComponent();
-            textBox1.Enabled = false;
-            textBox2.Enabled = false;
-            textBox3.Enabled = false;
-            textBox4.Enabled = false;
-            textBox5.Enabled = false;
-            textBox6.Enabled = false;
-            checkBox5.Checked = true;
+            NoNursesTextBox.Enabled = false;
+            StatusTextBox.Enabled = false;
+            NoPatientTextBox.Enabled = false;
+            NoRank3TextBox.Enabled = false;
+            CStatusTextBox.Enabled = false;
+            NoCPatientTextBox.Enabled = false;
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -31,33 +30,6 @@ namespace Tommundon
             menu.Dock = DockStyle.Fill;
             this.Parent.Controls.Add(menu);
             this.Parent.Controls.Remove(this);
-        }
-
-        private void checkBox5_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox5.Checked)
-            {
-                checkBox6.Checked = false;
-                checkBox7.Checked = false;
-            }
-        }
-
-        private void checkBox6_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox6.Checked)
-            {
-                checkBox5.Checked = false;
-                checkBox7.Checked = false;
-            }
-        }
-
-        private void checkBox7_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox7.Checked)
-            {
-                checkBox5.Checked = false;
-                checkBox6.Checked = false;
-            }
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)

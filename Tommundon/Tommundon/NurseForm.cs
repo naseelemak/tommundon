@@ -13,20 +13,13 @@ namespace Tommundon
 {
     public partial class NurseForm : UserControl
     {
-        private string text1;
-        private string text2;
-        private string text3;
-        private int v1;
-        private int v2;
-        OleDbConnection connect = Medible.AquireConnection();
-
         public NurseForm()
         {
             InitializeComponent();
-            textBox1.Enabled = false;
-            textBox2.Enabled = false;
-            textBox3.Enabled = false;
-            textBox4.Enabled = false;
+            NameTextBox.Enabled = false;
+            RankTextBox.Enabled = false;
+            IDTextBox.Enabled = false;
+            WardIDTextBox.Enabled = false;
             
 
         }
@@ -66,27 +59,27 @@ namespace Tommundon
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (comboBox1.SelectedIndex)
+            switch (NurseSelectionBox.SelectedIndex)
             {
                 case 0:
-                    textBox3.Enabled = true;
-                    textBox1.Enabled = true;
-                    textBox2.Enabled = true;
-                    textBox4.Enabled = true;
-                    textBox1.Text = "";
-                    textBox2.Text = "";
-                    textBox3.Text = "";
-                    textBox4.Text = "";
+                    IDTextBox.Enabled = true;
+                    NameTextBox.Enabled = true;
+                    RankTextBox.Enabled = true;
+                    WardIDTextBox.Enabled = true;
+                    NameTextBox.Text = "";
+                    RankTextBox.Text = "";
+                    IDTextBox.Text = "";
+                    WardIDTextBox.Text = "";
                     break;
                 case 1:
-                    textBox1.Enabled = false;
-                    textBox2.Enabled = false;
-                    textBox3.Enabled = false;
-                    textBox4.Enabled = false;
-                    textBox1.Text = "";
-                    textBox2.Text = "";
-                    textBox3.Text = "";
-                    textBox4.Text = "";
+                    NameTextBox.Enabled = false;
+                    RankTextBox.Enabled = false;
+                    IDTextBox.Enabled = true;
+                    WardIDTextBox.Enabled = false;
+                    NameTextBox.Text = "";
+                    RankTextBox.Text = "";
+                    IDTextBox.Text = "";
+                    WardIDTextBox.Text = "";
                     break;
             }
 
@@ -112,9 +105,9 @@ namespace Tommundon
             
             try
             {
-                if (textBox1.Enabled == true && textBox2.Enabled == true)
+                if (NameTextBox.Enabled == true && RankTextBox.Enabled == true)
                 {
-                    nurse item = new nurse(textBox3.Text.ToString(), textBox1.Text.ToString(), Int32.Parse(textBox2.Text), textBox4.Text.ToString());
+                    nurse item = new nurse(IDTextBox.Text.ToString(), NameTextBox.Text.ToString(), Int32.Parse(RankTextBox.Text), WardIDTextBox.Text.ToString());
                     item.insert(item);
                 }
             }
