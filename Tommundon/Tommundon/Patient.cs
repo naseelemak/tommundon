@@ -29,7 +29,6 @@ namespace Tommundon
         }
         
         public override void insert (Patient item)
- 
         {
             OleDbConnection connect = Medible.AquireConnection();
             connect.Open();
@@ -39,8 +38,12 @@ namespace Tommundon
             cmd.CommandText = "INSERT into General_Patient ( PatientID, PatientName, Ward, Dayleft, Critical, Discharge) values" + query;
             cmd.ExecuteNonQuery();
             connect.Close();
+        }
+        public virtual void insert (CriticalPatient item)
+        {
 
         }
+
     }
     
 }
