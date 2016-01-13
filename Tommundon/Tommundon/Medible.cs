@@ -23,7 +23,7 @@ namespace Tommundon
 
         public static OleDbConnection AquireConnection()
         {
-            OleDbConnection connect = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\edmun\Source\Repos\tommundon\Tommundon\Tommundon\Tomundon.accdb;");
+            OleDbConnection connect = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\edmun\Source\Repos\tommundon\Tommundon\Tommundon\Medible.mdb;User Id=admin; Password=;");
             return connect;
         }
         public virtual void insert(nurse item)
