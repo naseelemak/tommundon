@@ -38,7 +38,7 @@ namespace Tommundon
             string query = "('" + item.PatientID + "','" + item.PatientName + "','" + item.WardID + "','" + item.Daysleft.ToString() + "','" + item.Critical.ToString() + "','" + item.Discharge.ToString() + "')";
             cmd.CommandText = "INSERT into General_Patient (PatientID, PatientName, Ward, Dayleft, Critical, Discharge) values" + query;
             cmd.ExecuteNonQuery();
-            query = "(" + item.PatientID + "," + item.Level.ToString() + "," + item.Shareward.ToString() + ")";
+            query = "('" + item.PatientID + "','" + item.Level.ToString() + "','" + item.Shareward.ToString() + "')";
             cmd.CommandText = "INSERT into Critical_Patient (PatientID, [Level], Shareward) values" + query;
             cmd.ExecuteNonQuery();
             connect.Close();
