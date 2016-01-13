@@ -233,10 +233,21 @@ namespace Tommundon
                 {
                     if (CriticalYesCheckBox.Checked == true)
                     {
-                        Patient item = new Patient(IDTextBox.Text, NameTextBox.Text, Int32.Parse(DayLeftTextBox.Text), WardTextBox.Text, false, true );
-                        string query = "('" + item.PatientID + "','" + item.PatientName + "','" + item.Daysleft.ToString() + "','" + item.WardID + "','" + item.Discharge.ToString() + "','" + item.Critical.ToString() + "')";
+                        bool shareward = false;
+                        if (ShareWardYesCheckBox.Checked == true)
+                        {
+                            shareward = true;
+                        }
+                        else if (ShareWardYesCheckBox.Checked == false)
+                        {
+                            shareward = false;
+                        }
+                        CriticalPatient item = new CriticalPatient(IDTextBox.Text, NameTextBox.Text, Int32.Parse(DayLeftTextBox.Text), WardTextBox.Text, false, true, Int32.Parse(IllnessLevelTextBox.Text), shareward );
+                        string query = "('" + item.PatientID + "','" + item.PatientName + "','" + item.WardID + "','" + item.Daysleft.ToString() + "','" + item.Critical.ToString() + "','" + item.Discharge.ToString() + "')";
+                        string query2 = "('" + item.PatientID + "','" + item.Level.ToString() + "','" + item.Shareward.ToString() + "')";
+                        MessageBox.Show(query + query2);
                         item.insert(item);
-                        MessageBox.Show(query);
+                        
                     }
                     else if (CriticalYesCheckBox.Checked == false)
                     {
