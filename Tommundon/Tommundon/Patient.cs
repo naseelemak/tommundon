@@ -27,7 +27,11 @@ namespace Tommundon
             Discharge = _discharge;
             Critical = _critical;
         }
-        
+
+        public Patient(string _patientID)
+        {
+            PatientID = _patientID;
+        }
         public override void insert (Patient item)
         {
             OleDbConnection connect = Medible.AquireConnection();
@@ -43,7 +47,30 @@ namespace Tommundon
         {
 
         }
-
+        public override void discharge(Patient item)
+        {
+            OleDbConnection connect = Medible.AquireConnection();
+            connect.Open();
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.Connection = connect;
+            string query = item.PatientID;
+            cmd.CommandText = "update General_Patient set  discharge = 'True' where PatientID = '" + query + "'" ;
+            cmd.ExecuteNonQuery();
+            connect.Close();
+        }
+        public override void delete(Patient item)
+        {
+            OleDbConnection connect = Medible.AquireConnection();
+            connect.Open();
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.Connection = connect;
+            string query = "PatientID ='" + item.PatientID.ToString() + "'";
+            cmd.CommandText = "Delete from General_Patient where " + query;
+            cmd.ExecuteNonQuery();
+            cmd.CommandText = "Delete from Critical_Patient where " + query;
+            cmd.ExecuteNonQuery();
+            connect.Close();
+        }
     }
     
 }
