@@ -18,7 +18,7 @@ namespace Tommundon
         private string text3;
         private int v1;
         private int v2;
-        OleDbConnection connect = Medible.AquireConnection();
+
 
         public NurseForm()
         {
@@ -106,11 +106,19 @@ namespace Tommundon
             
             try
             {
-                if (textBox1.Enabled == true && textBox2.Enabled == true)
+                if (textBox3.Enabled == true && textBox2.Enabled == true && textBox1.Enabled == true)
                 {
                     nurse item = new nurse(Int32.Parse(textBox3.Text), textBox1.Text.ToString(), Int32.Parse(textBox2.Text));
                     item.insert(item);
+                    MessageBox.Show("data inserted");
                 }
+                else if (textBox3.Enabled == true && textBox2.Enabled != true && textBox1.Enabled != true)
+                {
+                    nurse item = new nurse(Int32.Parse(textBox3.Text));
+                    item.delete(item);
+                    MessageBox.Show("data deleted");
+                }
+                
             }
             catch
             {

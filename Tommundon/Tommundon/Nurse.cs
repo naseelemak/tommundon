@@ -19,6 +19,10 @@ namespace Tommundon
             this.nurseName = _nurseName;
             this.nurseRank = _nurseRank;
         }
+        public nurse(int _nurseID)
+        {
+            this.nurseID = _nurseID;
+        }
 
         public nurse()
         {
@@ -36,7 +40,18 @@ namespace Tommundon
             cmd.ExecuteNonQuery();
             connect.Close();
         }
-        
+        public override void delete(nurse item)
+        {
+            OleDbConnection connect = Medible.AquireConnection();
+            connect.Open();
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.Connection = connect;
+            string query = "nurseID =" + item.nurseID.ToString() + "";
+            cmd.CommandText = "Delete from Nurselist where "  + query ;
+            cmd.ExecuteNonQuery();
+            connect.Close();
+        }
+
 
 
 
