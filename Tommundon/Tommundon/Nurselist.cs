@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace Tommundon
 {
@@ -15,7 +16,19 @@ namespace Tommundon
         public Nurselist()
         {
             InitializeComponent();
+            OleDbConnection connect = Medible.AquireConnection();
+            connect.Open();
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.Connection = connect;
+            cmd.CommandText = "select* from Nurselist";
+            OleDbDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                dataGridView1.Rows.Add(reader["nurseID"], reader["nurseName"], reader["nurseRank"]);
+            }
+            connect.Close();
         }
+
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
@@ -31,6 +44,16 @@ namespace Tommundon
             menu.Dock = DockStyle.Fill;
             this.Parent.Controls.Add(menu);
             this.Parent.Controls.Remove(this);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

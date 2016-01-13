@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace Tommundon
 {
@@ -19,7 +20,7 @@ namespace Tommundon
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Patient patient = new Patient();
+            PatientForm patient = new PatientForm();
             patient.Dock = DockStyle.Fill;
             this.Parent.Controls.Add(patient);
             this.Parent.Controls.Remove(this);
@@ -27,7 +28,7 @@ namespace Tommundon
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Nurse nurse = new Nurse();
+            NurseForm nurse = new NurseForm();
             nurse.Dock = DockStyle.Fill;
             this.Parent.Controls.Add(nurse);
             this.Parent.Controls.Remove(this);
@@ -55,10 +56,15 @@ namespace Tommundon
 
         private void pictureBox3_Click_1(object sender, EventArgs e)
         {
-            Ward ward = new Ward();
+            WardForm ward = new WardForm();
             ward.Dock = DockStyle.Fill;
             this.Parent.Controls.Add(ward);
             this.Parent.Controls.Remove(this);
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
