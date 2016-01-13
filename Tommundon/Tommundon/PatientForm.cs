@@ -21,7 +21,6 @@ namespace Tommundon
             DayLeftTextBox.Enabled = false;
             IDTextBox.Enabled = false;
             IllnessLevelTextBox.Enabled = false;
-            NurseRankCheckBox.Enabled = false;
             WardTextBox.Enabled = false;
             ShareWardYesCheckBox.Enabled = false;
             ShareWardNoCheckBox.Enabled = false;
@@ -64,7 +63,6 @@ namespace Tommundon
                     DayLeftTextBox.Text = "";
                     IDTextBox.Text = "";
                     IllnessLevelTextBox.Text = "";
-                    NurseRankCheckBox.Text = "";
                     WardTextBox.Text = "";
                     ShareWardYesCheckBox.Checked = false;
                     ShareWardNoCheckBox.Checked = false;
@@ -74,7 +72,6 @@ namespace Tommundon
                     NameTextBox.Enabled = false;
                     DayLeftTextBox.Enabled = false;
                     IllnessLevelTextBox.Enabled = false;
-                    NurseRankCheckBox.Enabled = false;
                     WardTextBox.Enabled = false;
                     CriticalYesCheckBox.Enabled = false;
                     CriticalNoCheckBox.Enabled = false;
@@ -86,7 +83,6 @@ namespace Tommundon
                     DayLeftTextBox.Text = "";
                     IDTextBox.Text = "";
                     IllnessLevelTextBox.Text = "";
-                    NurseRankCheckBox.Text = "";
                     WardTextBox.Text = "";
                     ShareWardYesCheckBox.Checked = false;
                     ShareWardNoCheckBox.Checked = false;
@@ -96,7 +92,6 @@ namespace Tommundon
                     NameTextBox.Enabled = false;
                     DayLeftTextBox.Enabled = false;
                     IllnessLevelTextBox.Enabled = false;
-                    NurseRankCheckBox.Enabled = false;
                     WardTextBox.Enabled = false;
                     CriticalYesCheckBox.Enabled = false;
                     CriticalNoCheckBox.Enabled = false;
@@ -107,7 +102,6 @@ namespace Tommundon
                     DayLeftTextBox.Text = "";
                     IDTextBox.Text = "";
                     IllnessLevelTextBox.Text = "";
-                    NurseRankCheckBox.Text = "";
                     WardTextBox.Text = "";
                     ShareWardYesCheckBox.Checked = false;
                     ShareWardNoCheckBox.Checked = false;
@@ -117,7 +111,6 @@ namespace Tommundon
                     NameTextBox.Enabled = false;
                     DayLeftTextBox.Enabled = false;
                     IllnessLevelTextBox.Enabled = false;
-                    NurseRankCheckBox.Enabled = false;
                     WardTextBox.Enabled = false;
                     ShareWardYesCheckBox.Enabled = false;
                     ShareWardNoCheckBox.Enabled = false;
@@ -128,7 +121,6 @@ namespace Tommundon
                     DayLeftTextBox.Text = "";
                     IDTextBox.Text = "";
                     IllnessLevelTextBox.Text = "";
-                    NurseRankCheckBox.Text = "";
                     WardTextBox.Text = "";
                     ShareWardYesCheckBox.Checked = false;
                     ShareWardNoCheckBox.Checked = false;
@@ -162,7 +154,6 @@ namespace Tommundon
             {
                 CriticalNoCheckBox.Checked = false;
                 IllnessLevelTextBox.Enabled = true;
-                NurseRankCheckBox.Enabled = true;
                 ShareWardYesCheckBox.Enabled = true;
                 ShareWardNoCheckBox.Enabled = true;
                 ShareWardYesCheckBox.Checked = true;
@@ -175,9 +166,7 @@ namespace Tommundon
             {
                 CriticalYesCheckBox.Checked = false;
                 IllnessLevelTextBox.Enabled = false;
-                NurseRankCheckBox.Enabled = false;
                 IllnessLevelTextBox.Text = "";
-                NurseRankCheckBox.Text = "";
                 ShareWardYesCheckBox.Enabled = false;
                 ShareWardNoCheckBox.Enabled = false;
                 ShareWardYesCheckBox.Checked = false;

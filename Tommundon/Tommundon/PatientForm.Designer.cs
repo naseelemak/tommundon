@@ -41,13 +41,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.IllnessLevelTextBox = new System.Windows.Forms.TextBox();
             this.ShareWardYesCheckBox = new System.Windows.Forms.CheckBox();
             this.ShareWardNoCheckBox = new System.Windows.Forms.CheckBox();
             this.CriticalYesCheckBox = new System.Windows.Forms.CheckBox();
             this.CriticalNoCheckBox = new System.Windows.Forms.CheckBox();
-            this.NurseRankCheckBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.DonePictureBox = new System.Windows.Forms.PictureBox();
@@ -202,16 +200,6 @@
             this.label7.TabIndex = 19;
             this.label7.Text = "Share Ward";
             // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 239);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(69, 13);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "Nurses Rank";
-            // 
             // IllnessLevelTextBox
             // 
             this.IllnessLevelTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -269,15 +257,6 @@
             this.CriticalNoCheckBox.UseVisualStyleBackColor = true;
             this.CriticalNoCheckBox.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
-            // NurseRankCheckBox
-            // 
-            this.NurseRankCheckBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.NurseRankCheckBox.Location = new System.Drawing.Point(76, 236);
-            this.NurseRankCheckBox.Name = "NurseRankCheckBox";
-            this.NurseRankCheckBox.Size = new System.Drawing.Size(152, 20);
-            this.NurseRankCheckBox.TabIndex = 10;
-            this.NurseRankCheckBox.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
-            // 
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -322,7 +301,6 @@
             this.panel3.Controls.Add(this.WardTextBox);
             this.panel3.Controls.Add(this.PatientSelectionBox);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.NurseRankCheckBox);
             this.panel3.Controls.Add(this.NameTextBox);
             this.panel3.Controls.Add(this.CriticalNoCheckBox);
             this.panel3.Controls.Add(this.label2);
@@ -334,7 +312,6 @@
             this.panel3.Controls.Add(this.IDTextBox);
             this.panel3.Controls.Add(this.IllnessLevelTextBox);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Location = new System.Drawing.Point(12, 35);
@@ -431,13 +408,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox IllnessLevelTextBox;
         private System.Windows.Forms.CheckBox ShareWardYesCheckBox;
         private System.Windows.Forms.CheckBox ShareWardNoCheckBox;
         private System.Windows.Forms.CheckBox CriticalYesCheckBox;
         private System.Windows.Forms.CheckBox CriticalNoCheckBox;
-        private System.Windows.Forms.TextBox NurseRankCheckBox;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox DonePictureBox;
