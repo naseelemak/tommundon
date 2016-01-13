@@ -312,9 +312,9 @@ namespace Tommundon
                     Patient item = new Patient(IDTextBox.Text);
                     item.discharge(item);
                 }//Delete
-                else if (PatientSelectionBox.SelectedIndex == 1)
+                else if (PatientSelectionBox.SelectedIndex == 3)
                 {
-                    nurse item = new nurse(IDTextBox.Text);
+                    Patient item = new Patient(IDTextBox.Text);
                     item.delete(item);
 
                 }
