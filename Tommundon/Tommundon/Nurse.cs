@@ -48,7 +48,7 @@ namespace Tommundon
             connect.Open();
             OleDbCommand cmd = new OleDbCommand();
             cmd.Connection = connect;
-            string query = "NurseID =" + item.NurseID.ToString() + "";
+            string query = "NurseID = '" + item.NurseID.ToString() + "'";
             cmd.CommandText = "Delete from Nurses where " + query ;
             cmd.ExecuteNonQuery();
             connect.Close();
